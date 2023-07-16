@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Carousel Example</h2>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active" data-step="1">
+            <img
+              src="../static/wall1.jpg"
+              alt="Los Angeles"
+              style="width: 100%;"
+            />
+          </div>
+
+          <div class="item" data-step="2">
+            <img src="../static/wall2.jpg" alt="Chicago" style="width: 100%;" />
+          </div>
+
+          <div class="item" data-step="3">
+            <img
+              src="../static/wall3.jpg"
+              alt="New york"
+              style="width: 100%;"
+            />
+          </div>
+
+          <div class="item" data-step="4">
+            <img
+              src="../static/wall4.jpg"
+              alt="Los Angeles"
+              style="width: 100%;"
+            />
+          </div>
+
+          <div class="item" data-step="5">
+            <img src="../static/wall5.jpg" alt="Chicago" style="width: 100%;" />
+          </div>
+
+          <div class="item" data-step="6">
+            <img
+              src="../static/wall6.jpg"
+              alt="New york"
+              style="width: 100%;"
+            />
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <div class="progress">
+        <div
+          class="progress-bar progress-bar-success"
+          role="progressbar"
+          aria-valuenow="1"
+          aria-valuemin="1"
+          aria-valuemax="6"
+          style="width: 16.6%;"
+        >
+          Step 1
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var totalSteps = 6;
+      $('#myCarousel').carousel();
+      $('#myCarousel').on('slide.bs.carousel', function (e) {
+        //update progress
+        var step = $(e.relatedTarget).data('step');
+        var percent = (parseInt(step) / totalSteps) * 100;
+
+        $('.progress-bar').css({ width: percent + '%' });
+        $('.progress-bar').text('Step ' + step);
+      });
+    </script>
+  </body>
+</html>
